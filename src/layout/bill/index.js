@@ -1,15 +1,19 @@
 import React from 'react';
-import { List, Datagrid, TextField,ReferenceField} from 'react-admin';
-export const BillList = (props) => (
+import { List, Datagrid, TextField,ReferenceField,} from 'react-admin';
+const BillList = (props) => (
     <List {...props}>
         <Datagrid rowClick="show">
             <TextField source="id" />
-            <ReferenceField label="Customer" source="userID" reference="users">
-            <TextField source="username" />
+            <ReferenceField label="Customer" source="user" allowEmpty reference="users">
+                <TextField source="username" />
             </ReferenceField>
-            <TextField source="deliverState" />
-            <TextField source="createdAt" />
+            <ReferenceField label="Non Customer" source="nonUser" allowEmpty reference="users">
+            <TextField source="name" />
+            </ReferenceField>
+            <TextField source="deliveryState" />
+            <TextField source="createAt" />
             <TextField source="voucher" />
         </Datagrid>
     </List>
 );
+export default BillList;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { List, Datagrid, TextField,EditButton,TextInput, Filter,ShowButton,DeleteButton,ReferenceField } from 'react-admin';
+import { List, Datagrid, TextField,EditButton,TextInput, Filter,ShowButton,DeleteButton,ReferenceField,ImageField } from 'react-admin';
 
 const PostFilter = (props) => {
     return <Filter {...props}>
@@ -12,14 +12,11 @@ const ProductList = props => {
         <Datagrid rowClick="show">
         <TextField source="id" />
         <TextField source="name" />
+        <ImageField source="productImage"/>
         <TextField source="price" />
         <TextField source="quantity"/>
-        <ReferenceField label="Brand" source="brand" reference="brand">
-        <TextField source="name" />
-        </ReferenceField>
-        <ReferenceField label="Category" source="category" reference="category">
-        <TextField source="name" />
-        </ReferenceField>
+        <TextField source="brand.name" />
+        <TextField source="category.name" />
         <ShowButton/>
         <EditButton/>
         <DeleteButton/>

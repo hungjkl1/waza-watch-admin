@@ -13,7 +13,8 @@ const cardStyle = {
     display: 'inline-block',
     verticalAlign: 'top'
 };
-const CardView = ({ ids, data, basePath }) => (
+const CardView = ({ids,data,basePath}) => {
+    return (
     <div style={{ margin: '1em' }}>
     {ids.map(id =>
         <Card key={id} style={cardStyle}>
@@ -25,7 +26,7 @@ const CardView = ({ ids, data, basePath }) => (
                     </div>
                     </Fragment>
                 }
-                subheader={<TextField record={data[id]} source="createdAt.date" />}
+                subheader={<DateField record={data[id]} source="createdAt" />}
             />
             <CardContent>
             <div>Customer:</div>
@@ -49,6 +50,6 @@ const CardView = ({ ids, data, basePath }) => (
         </Card>
     )}
     </div>
-);
+);}
 
 export default CardView;
